@@ -12,23 +12,23 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
       try {
         console.log("get all records");
         const heroes = await Hero.find({});
-        res.status(200).send({ data: heroes });
+        res.status(200).json({ data: heroes });
       } catch (error: any) {
-        res.status(400).send({ error: error.message });
+        res.status(400).json({ error: error.message });
       }
       break;
 
     case "POST":
       try {
-        const hero = await Hero.create({});
-        res.status(200).send({ data: hero });
+        const hero = await Hero.create(req.body);
+        res.status(200).json({ data: hero });
       } catch (error: any) {
-        res.status(400).send({ error: error.message });
+        res.status(400).json({ error: error.message });
       }
       break;
 
     default:
-      res.status(400).send({ error: "Method not allowed" });
+      res.status(400).json({ error: "Method not allowed" });
       break;
   }
 }

@@ -12,7 +12,6 @@ async function dbConnect() {
     keepAliveInitialDelay: 300000,
   });
   connection.isConnected = db.connections[0].readyState;
-  console.log("connection.isConnected", connection.isConnected);
 }
 
 export default dbConnect;
