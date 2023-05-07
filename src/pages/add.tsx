@@ -7,7 +7,7 @@ type Form = {
   realName: string;
 };
 
-const addANewHero = () => {
+const AddANewHero = () => {
   const [form, setForm] = useState<Form>({
     madeUpName: "",
     realName: "",
@@ -67,4 +67,4 @@ const addANewHero = () => {
   );
 };
 
-export default addANewHero;
+export default AddANewHero;
