@@ -1,7 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import { Hero } from "./[id]";
+import { Hero } from "@/types";
 
+// gets all the heroes from the database
 export async function getServerSideProps() {
   const res = await fetch(`${process.env.SERVER_URL}/api/hero`);
   const { data } = await res.json();

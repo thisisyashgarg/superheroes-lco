@@ -1,21 +1,15 @@
 import React from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
+import { Hero } from "@/types";
 
-export type Hero = {
-  madeUpName: string;
-  realName: string;
-  _id: string;
-};
-
+// gets details of a hero with the id from the url
 export async function getServerSideProps({
   params,
 }: {
   params: { id: string };
 }) {
   const id = params.id;
-
-  const array: Hero[] = [];
   const res = await fetch(`${process.env.SERVER_URL}/api/hero/${id}`);
   const { data }: { data: Hero } = await res.json();
 

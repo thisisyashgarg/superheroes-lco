@@ -1,11 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-
-type Form = {
-  madeUpName: string;
-  realName: string;
-};
+import { Form } from "@/types";
 
 const AddANewHero = () => {
   const [form, setForm] = useState<Form>({
@@ -14,9 +10,10 @@ const AddANewHero = () => {
   });
   const router = useRouter();
 
+  // create a new hero and add it to the db
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    // submit the form to endpoint /api/hero
+
     try {
       await fetch(`${process.env.SERVER_URL}/api/hero`, {
         method: "POST",

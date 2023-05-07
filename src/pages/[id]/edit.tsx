@@ -1,13 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { useRouter } from "next/router";
-import { Hero } from ".";
+import { Form, Hero } from "@/types";
 
-type Form = {
-  madeUpName: string;
-  realName: string;
-};
-
+// get the hero data with the id from the url
 export async function getServerSideProps({
   params,
 }: {
@@ -23,17 +19,16 @@ export async function getServerSideProps({
   };
 }
 
+// edit the hero data with the id from the url
 const EditHero = ({ hero }: { hero: Hero }) => {
+  const router = useRouter();
   const [form, setForm] = useState<Form>({
     madeUpName: hero?.madeUpName,
     realName: hero?.realName,
   });
 
-  const router = useRouter();
-
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
-    // submit the form to endpoint /api/hero
     try {
       await fetch(`${process.env.SERVER_URL}/api/hero/${hero?._id}`, {
         method: "PUT",
