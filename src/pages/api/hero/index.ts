@@ -1,6 +1,6 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import dbConnect from "../../../../db/dbConnect";
-import Hero from "../../../../models/superhero";
+import dbConnect from "../../../db/dbConnect";
+import Hero from "../../../models/superhero";
 
 dbConnect();
 //get all records, post a new record

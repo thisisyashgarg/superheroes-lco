@@ -26,6 +26,7 @@ const EditHero = ({ hero }: { hero: Hero }) => {
     madeUpName: hero?.madeUpName,
     realName: hero?.realName,
   });
+  console.log(form);
 
   async function handleSubmit(event: React.FormEvent) {
     event.preventDefault();
