@@ -14,14 +14,16 @@ export async function getServerSideProps() {
 
 export default function Home({ allHeroes }: { allHeroes: Hero[] }) {
   return (
-    <div>
-      <h1 className="container display">Superhero Identities</h1>
-      {allHeroes.map((hero) => (
-        <div key={hero.madeUpName} className="border p-2 m-2">
-          <h2>{hero.madeUpName}</h2>
-          <Link href={`${hero?._id}`}>Reveal Identity</Link>
-        </div>
-      ))}
-    </div>
+    <>
+      <h1 className="">Superhero Identities</h1>
+      <div className="flex flex-wrap">
+        {allHeroes.map((hero) => (
+          <div key={hero.madeUpName} className="border p-4 m-2 w-fit">
+            <h2>{hero.madeUpName}</h2>
+            <Link href={`${hero?._id}`}>Reveal Identity</Link>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }

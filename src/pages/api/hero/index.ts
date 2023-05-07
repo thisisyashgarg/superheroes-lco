@@ -10,7 +10,6 @@ export default async function (req: NextApiRequest, res: NextApiResponse) {
   switch (method) {
     case "GET":
       try {
-        console.log("get all records");
         const heroes = await Hero.find({});
         res.status(200).json({ data: heroes });
       } catch (error: any) {
